@@ -26,9 +26,9 @@ class ListeDeTaches:
     
 liste = ListeDeTaches()
 
-tache1 = Tache("Faire les courses", "Acheter du lait et du pain")
-tache2 = Tache("Rendre le rapport", "Rapport de projet à rendre pour vendredi")
-tache3 = Tache("Réviser le cours", "Réviser le cours de mathématiques pour l'examen")
+tache1 = Tache("Faire les courses", "Acheter du legume et du dde la viande")
+tache2 = Tache("Rendre le rapport", "Rapport de projet à rendre pour lundi")
+tache3 = Tache("Réviser le cours", "Réviser le cours de histoire pour l'examen")
 
 
 liste.ajouterTache(tache1)
