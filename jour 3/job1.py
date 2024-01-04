@@ -1,32 +1,41 @@
-class Commande:
-    def __init__(self, numero_commande):
-        self.__numero_commande = numero_commande
-        self.__plats_commandes = {}
-        self.__statut_commande = "en cours"
+class Ville:
+    def __init__(self, nom, habitants):
+        self.__nom = nom
+        self.__habitants = habitants
 
-    # Assesseurs
-    def get_numero_commande(self):
-        return self.__numero_commande
+    # Assesseurs (getters)
+    def get_nom(self):
+        return self.__nom
 
-    def get_plats_commandes(self):
-        return self.__plats_commandes
+    def get_habitants(self):
+        return self.__habitants
 
-    def get_statut_commande(self):
-        return self.__statut_commande
+    # Mutateur (setter)
+    def ajouter_habitant(self):
+        self.__habitants += 1
 
-    # Mutateurs 
-    def ajouter_plat(self, nom_plat, prix):
-        self.__plats_commandes[nom_plat] = prix
 
-    def annuler_commande(self):
-        self.__statut_commande = "annulée"
+class Personne:
+    def __init__(self, nom, age, ville):
+        self.__nom = nom
+        self.__age = age
+        self.__ville = ville
+        self.ajouterPopulation()
 
-    def __calculer_total(self):
-        return sum(self.__plats_commandes.values())
+    def ajouterPopulation(self):
+        self.__ville.ajouter_habitant()
 
-    def afficher_commande(self):
-        print(f"Commande n°{self.__numero_commande} : {self.__plats_commandes}")
-        print(f"Total à payer : {self.__calculer_total()}")
+paris = Ville("Paris", 1000000)
+marseille = Ville("Marseille", 861635)
 
-    def calculer_TVA(self, taux_TVA):
-        return self.__calculer_total() * taux_TVA / 100
+#  nombre d'habitants de chaque ville
+print(f"Paris : {paris.get_habitants()} habitants")
+print(f"Marseille : {marseille.get_habitants()} habitants")
+
+maxime = Personne("maxime", 45, paris)
+mytlourd = Personne("Mytlourd", 4, paris)
+chloe = Personne("Chloé", 18, marseille)
+
+#  nombre d'habitants de chaque ville après l'arrivée des nouvelles personnes
+print(f"Paris : {paris.get_habitants()} habitants")
+print(f"Marseille : {marseille.get_habitants()} habitants")
